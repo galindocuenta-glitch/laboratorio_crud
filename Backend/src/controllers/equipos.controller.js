@@ -49,4 +49,4 @@ async function remove
     
 }
 
-GPUShaderModule.exposts = { list, getById, create, update, remove};
+module.exports = { list, getById, create, update, remove};
