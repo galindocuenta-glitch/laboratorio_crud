@@ -1,0 +1,47 @@
+
+ node_modules/
+ .env
+ .env.local
+ .env.develompent
+ .env-production
+ .env.*.local
+ npm-debug.log 
+
+#  Herramientas de IA/ CLaude Code
+.CLaude/
+# Dependencias 
+**/node_modules/
+
+# Variables de entorno
+**/.env
+**/.env.local
+**/.env.develompent
+**/.env-production
+
+# uploads
+uploads/equipos/*
+uploads/*
+!uploads/equipos/.gitkeep
+
+# Build / salida de compilación
+**/dist/
+**/Build/
+
+#  Logs
+**/npm-debug-.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+*.log
+
+# Cobertuta de test
+**/coverage/
+
+#  Archivos del sistema operativo
+.DS_Store
+Thumbs.db 
+
+# Editores
+.vscode/
+.idea/
+
+**/package-lock.json
