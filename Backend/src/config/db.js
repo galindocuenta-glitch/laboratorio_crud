@@ -9,11 +9,7 @@ user: env.db.user,
 password:env.db.password,
 database:env.db.database,
 waitForConnections: true,
-connectionLimit
-
-
-
-
-
+connectionLimit: 10
 });
+
 module.exports=pool;

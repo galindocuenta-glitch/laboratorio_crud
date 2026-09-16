@@ -3,7 +3,7 @@
  .env
  .env.local
  .env.develompent
- .env-production
+ .env.production
  .env.*.local
  npm-debug.log 
 
