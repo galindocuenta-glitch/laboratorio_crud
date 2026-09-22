@@ -60,7 +60,17 @@ export default function TeamForm({ editing, onSubmit, onCancel }) {
         </div>
       )}
 
-      
+      <div className="actions">
+        <button type="submit" className={editing ? 'edit' : ''}>
+        {editing ? 'Actualizar' : 'Crear'}
+        </button>
+        {editing && (
+          <button type="button" className="secondary" onClick={onCancel}>
+         < x size={16}>
+         </x>
+          </button>
+        )}
+      </div>
     </form>
-  )
+  );
 }
