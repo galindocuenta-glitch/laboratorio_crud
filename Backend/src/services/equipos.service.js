@@ -10,7 +10,6 @@ async function borrarImagenSiExiste(imagen) {
     try {
         await fs.unlink(path.join(UPLOAD_DIR, imagen));
     } catch {
-
         // Si el archivo existe en disco no es un error para el usuario.
     }
 }
@@ -37,9 +36,12 @@ async function createEquip({ nombre, marca, modelo }, imagen) {
     if (!nombre) {
         throw new AppError('nombre es obligatorio', 400);
     }
-    const [result] = await pool.execute('INSERT INTO equipos (nombre, marca, modelo, imagen) VALUES (?, ?, ?, ?)',
+
+    const [result] = await pool.execute
+    ('INSERT INTO equipos (nombre, marca, modelo, imagen) VALUES (?, ?, ?, ?)',
         [nombre, marca || null, modelo || null, imagen || null]
     );
+
     return getEquiposById(result.insertId);
 }
 
@@ -55,6 +57,7 @@ async function updateEquipo(id, { nombre, marca, modelo }, imagen) {
     if (!result.affectedRows) {
         throw new AppError('Equipo no encontrado', 404);
     }
+
     if (imagen && actual.imagen !== imagen) {
         await borrarImagenSiExiste(actual.imagen);
     }
@@ -63,13 +66,17 @@ async function updateEquipo(id, { nombre, marca, modelo }, imagen) {
 async function deleteEquipo(id) {
     const actual = await getEquiposById(id);
 
-    const [result] = await pool.execute('DELETE FROM equipos WHERE id_equipo = ?',
+    const [result] = await pool.execute
+    ('DELETE FROM equipos WHERE id_equipo = ?',
         [id]
     );
+
     if (!result.affectedRows) {
         throw new AppError('Equipo no encontrado', 404);
     }
+
     await borrarImagenSiExiste(actual.imagen);
 }
+
 module.exports = { listEquipos, getEquiposById, createEquip, updateEquipo, deleteEquipo };
 

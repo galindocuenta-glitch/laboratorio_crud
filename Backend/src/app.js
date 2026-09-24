@@ -21,6 +21,7 @@ app.use('/api/equipos', equiposRoutes);
 
 app.use((req, res) => {
     res.status(404).json({
+        ok: false,
         message: 'Ruta no encontrada'
     });
 });

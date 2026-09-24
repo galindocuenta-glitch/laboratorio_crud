@@ -10,7 +10,8 @@ async function seedAdmin() {
         return;
     }
 
-    const [existingAdmin] = await pool.execute('SELECT id_usuario FROM usuarios WHERE email = ?',
+    const [existingAdmin] = await pool.execute
+    ('SELECT id_usuario FROM usuarios WHERE email = ?',
         [email]
     );
 
@@ -21,9 +22,11 @@ async function seedAdmin() {
 
     const hash = await bcrypt.hash(password, 10);
 
-    await pool.execute('INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?,?, ?)',
+    await pool.execute
+    ('INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?,?, ?)',
         [name, email, hash, 'admin']
     );
+    
     console.log('Usuario admin creado: ${email}');
 }
 
