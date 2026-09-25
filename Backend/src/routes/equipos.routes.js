@@ -11,7 +11,7 @@ router.get('/',controller.list);
 router.get('/:id', controller.getById);
 
 //  Admin y cliente pueden crear/editar en este ejemplo.
-router.get('/',authorize('admin','cliente'), uploadEquipoImagen, controller.create);
+router.post('/',authorize('admin','cliente'), uploadEquipoImagen, controller.create);
 router.put('/:id',authorize('admin','cliente'), uploadEquipoImagen, controller.update);
 
 //  Solo admin puede eliminar

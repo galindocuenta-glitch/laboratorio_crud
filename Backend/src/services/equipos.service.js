@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 const pool = require('../config/db');
-const AppError = require('./utils/AppError');
+const AppError = require('../utils/AppError');
 const { UPLOAD_DIR } = require('../middlewares/upload.middleware');
 
 async function borrarImagenSiExiste(imagen) {

@@ -1,0 +1,9 @@
+{
+  "name": "laboratorio-crud",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix Backend start",
+    "backend": "npm --prefix Backend run dev",
+    "frontend": "npm --prefix Frontend run dev"
+  }
+}

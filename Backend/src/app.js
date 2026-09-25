@@ -10,7 +10,15 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static(path.joiin(__dirname, '..', 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+
+app.get('/', (req, res) => {
+    res.json({
+        ok: true,
+        message: 'Laboratorio CRUD API',
+        health: '/api/health'
+    });
+});
 
 app.get('/api/health', (req, res) => {
     res.json({ ok: true, message: 'Laboratorio CRUD API funcional'});

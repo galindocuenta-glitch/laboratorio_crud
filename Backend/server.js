@@ -6,7 +6,7 @@ async function start() {
     await seeAdmin();
 
     app.listen(env.port, () => {
-        console.log('Laboratorio API CRUD ejecutándose en http://localhost:${env.port');
+        console.log(`Laboratorio API CRUD ejecutándose en http://localhost:${env.port}`);
     });
 }
 start();

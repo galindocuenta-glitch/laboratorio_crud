@@ -1,4 +1,5 @@
 const authService = require('../services/auth.service');
+
 async function register(req, res, next) {
     try {
         const { id_usuario} = await authService.registerUser(req.body);
@@ -23,4 +24,4 @@ async function login(req, res, next) {
        
 }
 
-module.exports = { register, login};
+module.exports = { register, login };
